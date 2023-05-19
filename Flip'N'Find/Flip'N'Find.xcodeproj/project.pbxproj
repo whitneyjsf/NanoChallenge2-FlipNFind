@@ -13,8 +13,11 @@
 		DA3406CA2A15C1AD000BEAEF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA3406C92A15C1AD000BEAEF /* Preview Assets.xcassets */; };
 		DA3406D12A15C886000BEAEF /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3406D02A15C886000BEAEF /* OnboardingView.swift */; };
 		DA3406D52A1662DA000BEAEF /* LogoAnimationSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3406D42A1662DA000BEAEF /* LogoAnimationSceneView.swift */; };
-		DA3406D72A1668A7000BEAEF /* CardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3406D62A1668A7000BEAEF /* CardGameView.swift */; };
 		DA3406D92A168C9A000BEAEF /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3406D82A168C9A000BEAEF /* LeaderboardView.swift */; };
+		DA3406DE2A178047000BEAEF /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3406DD2A178047000BEAEF /* CardComponent.swift */; };
+		DA3406E02A1784CA000BEAEF /* CardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3406DF2A1784CA000BEAEF /* CardGameView.swift */; };
+		DA3406E42A178597000BEAEF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3406E32A178597000BEAEF /* Card.swift */; };
+		DA3406E62A1786CF000BEAEF /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3406E52A1786CF000BEAEF /* GameViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,8 +28,11 @@
 		DA3406C92A15C1AD000BEAEF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DA3406D02A15C886000BEAEF /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		DA3406D42A1662DA000BEAEF /* LogoAnimationSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationSceneView.swift; sourceTree = "<group>"; };
-		DA3406D62A1668A7000BEAEF /* CardGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameView.swift; sourceTree = "<group>"; };
 		DA3406D82A168C9A000BEAEF /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
+		DA3406DD2A178047000BEAEF /* CardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
+		DA3406DF2A1784CA000BEAEF /* CardGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameView.swift; sourceTree = "<group>"; };
+		DA3406E32A178597000BEAEF /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		DA3406E52A1786CF000BEAEF /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +50,7 @@
 			isa = PBXGroup;
 			children = (
 				DA3406C12A15C1AC000BEAEF /* Flip'N'Find */,
+				DA3406EC2A17E5D6000BEAEF /* Assets */,
 				DA3406C02A15C1AC000BEAEF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,13 +66,11 @@
 		DA3406C12A15C1AC000BEAEF /* Flip'N'Find */ = {
 			isa = PBXGroup;
 			children = (
-				DA3406C22A15C1AC000BEAEF /* Flip_N_FindApp.swift */,
-				DA3406C42A15C1AC000BEAEF /* ContentView.swift */,
-				DA3406D02A15C886000BEAEF /* OnboardingView.swift */,
-				DA3406D82A168C9A000BEAEF /* LeaderboardView.swift */,
-				DA3406D62A1668A7000BEAEF /* CardGameView.swift */,
-				DA3406D42A1662DA000BEAEF /* LogoAnimationSceneView.swift */,
-				DA3406C62A15C1AD000BEAEF /* Assets.xcassets */,
+				DA3406EB2A17CBAE000BEAEF /* SpriteKitView */,
+				DA3406E82A17CB5A000BEAEF /* Component */,
+				DA3406E92A17CB8C000BEAEF /* Model */,
+				DA3406EA2A17CB98000BEAEF /* View */,
+				DA3406E72A17CB45000BEAEF /* ViewModel */,
 				DA3406C82A15C1AD000BEAEF /* Preview Content */,
 			);
 			path = "Flip'N'Find";
@@ -74,9 +79,61 @@
 		DA3406C82A15C1AD000BEAEF /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				DA3406C92A15C1AD000BEAEF /* Preview Assets.xcassets */,
+				DA3406C22A15C1AC000BEAEF /* Flip_N_FindApp.swift */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DA3406E72A17CB45000BEAEF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DA3406E52A1786CF000BEAEF /* GameViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DA3406E82A17CB5A000BEAEF /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				DA3406DD2A178047000BEAEF /* CardComponent.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		DA3406E92A17CB8C000BEAEF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DA3406E32A178597000BEAEF /* Card.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DA3406EA2A17CB98000BEAEF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA3406C42A15C1AC000BEAEF /* ContentView.swift */,
+				DA3406D02A15C886000BEAEF /* OnboardingView.swift */,
+				DA3406DF2A1784CA000BEAEF /* CardGameView.swift */,
+				DA3406D82A168C9A000BEAEF /* LeaderboardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DA3406EB2A17CBAE000BEAEF /* SpriteKitView */ = {
+			isa = PBXGroup;
+			children = (
+				DA3406D42A1662DA000BEAEF /* LogoAnimationSceneView.swift */,
+			);
+			path = SpriteKitView;
+			sourceTree = "<group>";
+		};
+		DA3406EC2A17E5D6000BEAEF /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				DA3406C92A15C1AD000BEAEF /* Preview Assets.xcassets */,
+				DA3406C62A15C1AD000BEAEF /* Assets.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,12 +206,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA3406D72A1668A7000BEAEF /* CardGameView.swift in Sources */,
+				DA3406E62A1786CF000BEAEF /* GameViewModel.swift in Sources */,
+				DA3406DE2A178047000BEAEF /* CardComponent.swift in Sources */,
 				DA3406D12A15C886000BEAEF /* OnboardingView.swift in Sources */,
+				DA3406E02A1784CA000BEAEF /* CardGameView.swift in Sources */,
 				DA3406D52A1662DA000BEAEF /* LogoAnimationSceneView.swift in Sources */,
 				DA3406C52A15C1AC000BEAEF /* ContentView.swift in Sources */,
 				DA3406D92A168C9A000BEAEF /* LeaderboardView.swift in Sources */,
 				DA3406C32A15C1AC000BEAEF /* Flip_N_FindApp.swift in Sources */,
+				DA3406E42A178597000BEAEF /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

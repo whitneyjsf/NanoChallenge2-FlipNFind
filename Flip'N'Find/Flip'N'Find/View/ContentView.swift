@@ -14,7 +14,6 @@ struct ContentView: View {
             VStack {
                 OnboardingView()
             }
-            .padding()
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

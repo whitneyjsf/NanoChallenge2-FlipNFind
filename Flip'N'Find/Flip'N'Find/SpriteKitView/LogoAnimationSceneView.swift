@@ -17,9 +17,10 @@ class GameScene: SKScene {
         spriteNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
         addChild(spriteNode)
         
-        let textureNames = ["Image-1", "Image-2", "Image-3", "Image-4"]   // array animation image
+        let textureNames = ["Image-1.1", "Image-1.2", "Image-1.3", "Image-1.4",
+                            "Image-1.5", "Image-1.6", "Image-1.7", "Image-1.8"]   // array animation image
         let textures = textureNames.map { SKTexture(imageNamed: $0) }
-        let animationAction = SKAction.animate(with: textures, timePerFrame: 1.0)
+        let animationAction = SKAction.animate(with: textures, timePerFrame: 0.9)
         let repeatAction = SKAction.repeatForever(animationAction)
         spriteNode.run(repeatAction)
     }
