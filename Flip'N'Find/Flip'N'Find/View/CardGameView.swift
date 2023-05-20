@@ -40,7 +40,7 @@ struct CardGameView: View {
                             CardGameViewModel(card: card, width: Int(geo.size.width/4 - 10), MatchedCards: $MatchedCards, UserChoices:$UserChoices)
                         }
                     }
-                    .padding()
+                    .padding(1)
                 }
             }
         }

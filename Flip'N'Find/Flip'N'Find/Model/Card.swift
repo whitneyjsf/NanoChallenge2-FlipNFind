@@ -24,15 +24,16 @@ class Card: Identifiable, ObservableObject {
 }
 
 let cardValues: [String] = [
-            "🥳",
-            "🙂",
-            "😂",
-            "📸",
-            "🍽️",
-            "☺️",
-            "🤍",
-            "😤"
-        ]
+    "Image-1",
+    "Image-2",
+    "Image-3",
+    "Image-4",
+    "Image-5",
+    "Image-6",
+    "Image-7",
+    "Image-8"
+]
+
 
 
 func createCardList() -> [Card] {
