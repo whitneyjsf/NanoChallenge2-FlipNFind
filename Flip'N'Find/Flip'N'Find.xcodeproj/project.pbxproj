@@ -14,14 +14,13 @@
 		DA3406D12A15C886000BEAEF /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3406D02A15C886000BEAEF /* OnboardingView.swift */; };
 		DA3406D52A1662DA000BEAEF /* LogoAnimationSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3406D42A1662DA000BEAEF /* LogoAnimationSceneView.swift */; };
 		DA3406D92A168C9A000BEAEF /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3406D82A168C9A000BEAEF /* LeaderboardView.swift */; };
-		DA3406DE2A178047000BEAEF /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3406DD2A178047000BEAEF /* CardComponent.swift */; };
 		DA3406E02A1784CA000BEAEF /* CardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3406DF2A1784CA000BEAEF /* CardGameView.swift */; };
 		DA3406E42A178597000BEAEF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3406E32A178597000BEAEF /* Card.swift */; };
 		DA34071D2A1896E9000BEAEF /* CardGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34071C2A1896E9000BEAEF /* CardGameViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DA3406BF2A15C1AC000BEAEF /* Flip'N'Find.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flip'N'Find.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA3406BF2A15C1AC000BEAEF /* Flip'N'Find.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Flip'N'Find.app"; path = "/Users/whitneyprajnapundarika/Documents/NC2/Flip'N'Find/build/Debug-iphoneos/Flip'N'Find.app"; sourceTree = "<absolute>"; };
 		DA3406C22A15C1AC000BEAEF /* Flip_N_FindApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flip_N_FindApp.swift; sourceTree = "<group>"; };
 		DA3406C42A15C1AC000BEAEF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DA3406C62A15C1AD000BEAEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -29,7 +28,6 @@
 		DA3406D02A15C886000BEAEF /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		DA3406D42A1662DA000BEAEF /* LogoAnimationSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationSceneView.swift; sourceTree = "<group>"; };
 		DA3406D82A168C9A000BEAEF /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
-		DA3406DD2A178047000BEAEF /* CardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
 		DA3406DF2A1784CA000BEAEF /* CardGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameView.swift; sourceTree = "<group>"; };
 		DA3406E32A178597000BEAEF /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		DA34071C2A1896E9000BEAEF /* CardGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameViewModel.swift; sourceTree = "<group>"; };
@@ -51,23 +49,13 @@
 			children = (
 				DA3406C12A15C1AC000BEAEF /* Flip'N'Find */,
 				DA3406EC2A17E5D6000BEAEF /* Assets */,
-				DA3406C02A15C1AC000BEAEF /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		DA3406C02A15C1AC000BEAEF /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DA3406BF2A15C1AC000BEAEF /* Flip'N'Find.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		DA3406C12A15C1AC000BEAEF /* Flip'N'Find */ = {
 			isa = PBXGroup;
 			children = (
 				DA3406EB2A17CBAE000BEAEF /* SpriteKitView */,
-				DA3406E82A17CB5A000BEAEF /* Component */,
 				DA3406E92A17CB8C000BEAEF /* Model */,
 				DA3406EA2A17CB98000BEAEF /* View */,
 				DA3406E72A17CB45000BEAEF /* ViewModel */,
@@ -90,14 +78,6 @@
 				DA34071C2A1896E9000BEAEF /* CardGameViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		DA3406E82A17CB5A000BEAEF /* Component */ = {
-			isa = PBXGroup;
-			children = (
-				DA3406DD2A178047000BEAEF /* CardComponent.swift */,
-			);
-			path = Component;
 			sourceTree = "<group>";
 		};
 		DA3406E92A17CB8C000BEAEF /* Model */ = {
@@ -180,7 +160,7 @@
 				Base,
 			);
 			mainGroup = DA3406B62A15C1AC000BEAEF;
-			productRefGroup = DA3406C02A15C1AC000BEAEF /* Products */;
+			productRefGroup = DA3406B62A15C1AC000BEAEF;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -206,7 +186,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA3406DE2A178047000BEAEF /* CardComponent.swift in Sources */,
 				DA34071D2A1896E9000BEAEF /* CardGameViewModel.swift in Sources */,
 				DA3406D12A15C886000BEAEF /* OnboardingView.swift in Sources */,
 				DA3406E02A1784CA000BEAEF /* CardGameView.swift in Sources */,

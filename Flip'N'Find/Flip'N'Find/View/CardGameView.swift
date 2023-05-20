@@ -31,16 +31,17 @@ struct CardGameView: View {
                     .resizable()
                     .scaledToFill()
                     .edgesIgnoringSafeArea(.all)
-                VStack {
+                VStack{
                     Text("Animals Memory Games")
                         .font(Font.system(size:27, design: .monospaced).bold())
                     
-                    LazyVGrid(columns: fourColumnGrid, spacing: 10){
+                    LazyVGrid(columns: fourColumnGrid, spacing: 1){
                         ForEach(cards){card in
                             CardGameViewModel(card: card, width: Int(geo.size.width/4 - 10), MatchedCards: $MatchedCards, UserChoices:$UserChoices)
                         }
                     }
-                    .padding(1)
+                    .padding()
+                    
                 }
             }
         }
