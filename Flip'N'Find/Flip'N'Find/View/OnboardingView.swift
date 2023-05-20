@@ -19,7 +19,7 @@ struct OnboardingView: View {
                 VStack {
                     Text("\n\nFlip 'N' Find")
                         .font(Font.system(size:36, design: .monospaced).bold())
-                    Text("Animal Memory Games")
+                    Text("Animal's Memory Games")
                         .font(Font.system(size:22, design: .monospaced).italic())
                         .padding(.bottom, 40)
                     SpriteView(scene: GameScene(size: CGSize(width: 250, height: 250)))

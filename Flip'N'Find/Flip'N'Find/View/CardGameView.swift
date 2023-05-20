@@ -10,35 +10,38 @@ import SpriteKit
 
 struct CardGameView: View {
     
+    private var fourColumnGrid = [GridItem(.flexible()),
+                                  GridItem(.flexible()),
+                                  GridItem(.flexible()),
+                                  GridItem(.flexible()),]
+    
+    private var fourRowGrid = [GridItem(.flexible()),
+                               GridItem(.flexible()),
+                               GridItem(.flexible()),
+                               GridItem(.flexible()),]
+    
+    @State var cards = createCardList().shuffled()
+    @State var MatchedCards = [Card]()
+    @State var UserChoices = [Card]()
+    
     var body: some View {
-        
-        let columnLayout = Array(repeating: GridItem(), count: 4)
-        let allColors: [Color] = [.pink, .red, .orange, .yellow, .green, .mint, .teal, .cyan, .blue, .indigo, .purple, .brown, .gray, .pink, .red, .yellow]
-        
-        ZStack {
-            Image("Background-1")
-                .resizable()
-                .scaledToFill()
-                .edgesIgnoringSafeArea(.all)
-            VStack {
-                Spacer()
-                
-                ZStack {
-                    Text("Find Those Animals!")
-                        .font(Font.system(size:26, design: .monospaced).bold())
-                }
-                .padding(.bottom, 70)
-                LazyVGrid(columns: columnLayout, alignment: .center) {
-                    ForEach(allColors.indices, id: \.self) { index in
-                        RoundedRectangle(cornerRadius: 9.0)
-                            .aspectRatio(1.0, contentMode: ContentMode.fit)
+        GeometryReader{geo in
+            ZStack {
+                Image("Background-1")
+                    .resizable()
+                    .scaledToFill()
+                    .edgesIgnoringSafeArea(.all)
+                VStack {
+                    Text("Animals Memory Games")
+                        .font(Font.system(size:27, design: .monospaced).bold())
+                    
+                    LazyVGrid(columns: fourColumnGrid, spacing: 10){
+                        ForEach(cards){card in
+                            CardGameViewModel(card: card, width: Int(geo.size.width/4 - 10), MatchedCards: $MatchedCards, UserChoices:$UserChoices)
+                        }
                     }
+                    .padding()
                 }
-                .foregroundColor(.white)
-                .padding(.leading)
-                .padding(.trailing)
-                .padding(.bottom, 50)
-                Spacer()
             }
         }
     }
@@ -50,4 +53,4 @@ struct CardGameView_Previews: PreviewProvider {
     }
 }
 
-//card: Card(imageName: "Image-1", isFaceUp: true)
+
