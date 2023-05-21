@@ -9,7 +9,18 @@ import SwiftUI
 
 struct LeaderboardView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Image("Background-1")
+                .resizable()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all)
+            VStack {
+                Text("Leaderboard")
+                    .font(Font.system(size:36, design: .monospaced).bold())
+                
+            }
+        }
+        
     }
 }
 

@@ -62,6 +62,22 @@ struct CardGameViewModel: View {
             MatchedCards.append(UserChoices[1])
         }
         UserChoices.removeAll()
+        
+//        if MatchedCards.count == cards.count {
+//            // Show the popup or perform any desired action when all cards are matched
+//            showGameCompletedPopup()
+//        }
     }
+    
+//    func showGameCompletedPopup() {
+//        // Implement your code to show the game completed popup
+//        // This function will be called when all cards have been matched
+//        // You can use SwiftUI's Alert or a custom popup view to display the message
+//        // Example using SwiftUI's Alert:
+//        _ = Alert(title: Text("Congratulations!"), message: Text("You have completed the game."), dismissButton: .default(Text("OK")))
+//        // Present the alert using the appropriate SwiftUI view presentation method, such as .alert(isPresented:content:)
+//    }
+    
+    
 }
 

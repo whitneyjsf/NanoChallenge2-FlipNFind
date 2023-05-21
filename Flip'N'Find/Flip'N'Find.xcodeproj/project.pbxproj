@@ -17,6 +17,11 @@
 		DA3406E02A1784CA000BEAEF /* CardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3406DF2A1784CA000BEAEF /* CardGameView.swift */; };
 		DA3406E42A178597000BEAEF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3406E32A178597000BEAEF /* Card.swift */; };
 		DA34071D2A1896E9000BEAEF /* CardGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34071C2A1896E9000BEAEF /* CardGameViewModel.swift */; };
+		DAD656E62A1A4C1200681318 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD656E52A1A4C1200681318 /* SoundManager.swift */; };
+		DAD656E82A1A4CB800681318 /* button-click-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DAD656E72A1A4CB800681318 /* button-click-sound.mp3 */; };
+		DAD656EC2A1A56DF00681318 /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD656EB2A1A56DF00681318 /* TitleScene.swift */; };
+		DAD656EE2A1A58A900681318 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD656ED2A1A58A900681318 /* PopUpView.swift */; };
+		DAD656F22A1A599C00681318 /* LeaderboardUserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAD656F02A1A599C00681318 /* LeaderboardUserData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +36,11 @@
 		DA3406DF2A1784CA000BEAEF /* CardGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameView.swift; sourceTree = "<group>"; };
 		DA3406E32A178597000BEAEF /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		DA34071C2A1896E9000BEAEF /* CardGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameViewModel.swift; sourceTree = "<group>"; };
+		DAD656E52A1A4C1200681318 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		DAD656E72A1A4CB800681318 /* button-click-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "button-click-sound.mp3"; path = "../../../../Downloads/button-click-sound.mp3"; sourceTree = "<group>"; };
+		DAD656EB2A1A56DF00681318 /* TitleScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
+		DAD656ED2A1A58A900681318 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
+		DAD656F12A1A599C00681318 /* LeaderboardUserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LeaderboardUserData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +65,7 @@
 		DA3406C12A15C1AC000BEAEF /* Flip'N'Find */ = {
 			isa = PBXGroup;
 			children = (
+				DAD656EF2A1A597700681318 /* Data */,
 				DA3406EB2A17CBAE000BEAEF /* SpriteKitView */,
 				DA3406E92A17CB8C000BEAEF /* Model */,
 				DA3406EA2A17CB98000BEAEF /* View */,
@@ -68,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				DA3406C22A15C1AC000BEAEF /* Flip_N_FindApp.swift */,
+				DA3406C42A15C1AC000BEAEF /* ContentView.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -84,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				DA3406E32A178597000BEAEF /* Card.swift */,
+				DAD656E52A1A4C1200681318 /* SoundManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -91,10 +104,10 @@
 		DA3406EA2A17CB98000BEAEF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DA3406C42A15C1AC000BEAEF /* ContentView.swift */,
 				DA3406D02A15C886000BEAEF /* OnboardingView.swift */,
 				DA3406DF2A1784CA000BEAEF /* CardGameView.swift */,
 				DA3406D82A168C9A000BEAEF /* LeaderboardView.swift */,
+				DAD656ED2A1A58A900681318 /* PopUpView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -103,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				DA3406D42A1662DA000BEAEF /* LogoAnimationSceneView.swift */,
+				DAD656EB2A1A56DF00681318 /* TitleScene.swift */,
 			);
 			path = SpriteKitView;
 			sourceTree = "<group>";
@@ -112,8 +126,17 @@
 			children = (
 				DA3406C92A15C1AD000BEAEF /* Preview Assets.xcassets */,
 				DA3406C62A15C1AD000BEAEF /* Assets.xcassets */,
+				DAD656E72A1A4CB800681318 /* button-click-sound.mp3 */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		DAD656EF2A1A597700681318 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DAD656F02A1A599C00681318 /* LeaderboardUserData.xcdatamodeld */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +199,7 @@
 			files = (
 				DA3406CA2A15C1AD000BEAEF /* Preview Assets.xcassets in Resources */,
 				DA3406C72A15C1AD000BEAEF /* Assets.xcassets in Resources */,
+				DAD656E82A1A4CB800681318 /* button-click-sound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,6 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAD656EE2A1A58A900681318 /* PopUpView.swift in Sources */,
 				DA34071D2A1896E9000BEAEF /* CardGameViewModel.swift in Sources */,
 				DA3406D12A15C886000BEAEF /* OnboardingView.swift in Sources */,
 				DA3406E02A1784CA000BEAEF /* CardGameView.swift in Sources */,
@@ -193,7 +218,10 @@
 				DA3406C52A15C1AC000BEAEF /* ContentView.swift in Sources */,
 				DA3406D92A168C9A000BEAEF /* LeaderboardView.swift in Sources */,
 				DA3406C32A15C1AC000BEAEF /* Flip_N_FindApp.swift in Sources */,
+				DAD656F22A1A599C00681318 /* LeaderboardUserData.xcdatamodeld in Sources */,
 				DA3406E42A178597000BEAEF /* Card.swift in Sources */,
+				DAD656E62A1A4C1200681318 /* SoundManager.swift in Sources */,
+				DAD656EC2A1A56DF00681318 /* TitleScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +422,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DAD656F02A1A599C00681318 /* LeaderboardUserData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DAD656F12A1A599C00681318 /* LeaderboardUserData.xcdatamodel */,
+			);
+			currentVersion = DAD656F12A1A599C00681318 /* LeaderboardUserData.xcdatamodel */;
+			path = LeaderboardUserData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DA3406B72A15C1AC000BEAEF /* Project object */;
 }

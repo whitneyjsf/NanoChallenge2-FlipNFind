@@ -7,8 +7,10 @@
 
 import SwiftUI
 import SpriteKit
+import AVFoundation
 
 struct OnboardingView: View {
+    @State private var isAnimatingButtonPlay = false
     var body: some View {
         NavigationView {
             ZStack {
@@ -26,24 +28,32 @@ struct OnboardingView: View {
                         .background(Color.clear)
                         .frame(width: 200, height: 200)
                         .padding(.bottom, 40)
-                    NavigationLink(destination: CardGameView().onAppear(perform: {
+                    NavigationLink(destination: CardGameView()
+                        .onAppear(perform: {
                     })) {
                         Text("Play")
-                            .font(Font.system(size:25, design: .monospaced))
+                            .font(Font.system(size:25, design: .monospaced).bold())
                             .foregroundColor(.white)
-                            .frame(width:300, height: 60)
+                            .frame(width:300, height: 55)
                             .background(Color.mint)
-                            .cornerRadius(8)
+                            .cornerRadius(26)
                             .padding(.bottom,5)
                     }
+                    .scaleEffect(isAnimatingButtonPlay ? 0.9 : 1.0)
+                    .onAppear {
+                        withAnimation(Animation.easeInOut(duration: 1.5).repeatForever()) {
+                            self.isAnimatingButtonPlay.toggle()
+                        }
+                    }
+                    .padding()
                     NavigationLink(destination: LeaderboardView().onAppear(perform: {
                     })) {
                         Text("Check Leaderboard")
-                            .font(Font.system(size:25, design: .monospaced))
+                            .font(Font.system(size:20, design: .monospaced))
                             .foregroundColor(.white)
-                            .frame(width:300, height: 60)
+                            .frame(width:250, height: 50)
                             .background(Color.mint)
-                            .cornerRadius(8)
+                            .cornerRadius(26)
                             .padding(.bottom,5)
                     }
                 }
