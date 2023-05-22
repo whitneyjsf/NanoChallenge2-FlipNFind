@@ -45,8 +45,12 @@ struct CardGameView: View {
                     Rectangle()
                         .foregroundColor(.mint)
                         .frame(width: 400, height: 500)
-                        .padding(.bottom, 40)
+                        .padding(.top, 75)
                     VStack{
+                        Text("Match the animals!")
+                            .font(Font.system(size:30, design: .monospaced).bold())
+                            .foregroundColor(.black)
+                            .padding(.bottom, 60)
                         HStack {
                             Text("Time: \(elapsedSeconds) seconds")
                                 .font(Font.system(size:25, design: .monospaced).bold())
@@ -65,7 +69,7 @@ struct CardGameView: View {
                     }
                     .padding()
                 }
-                .padding(.bottom, 100)
+                .padding(.bottom, 48)
             }
         }
         .padding(-4)
@@ -84,12 +88,12 @@ struct CardGameView: View {
         .onDisappear {
             timer.upstream.connect().cancel()
         }
-        .alert("Congratulations", isPresented: $isGameCompleted) {
-            Button("OK") {
+        .alert("Woohoo! Great Job", isPresented: $isGameCompleted) {
+            Button("Close") {
                 isShowing = false
             }
         } message: {
-            Text("Time: \(elapsedSeconds) seconds")
+            Text("Your best time is\n\n\(elapsedSeconds) seconds")
         }
         
         //        .sheet(isPresented: $isGameCompleted) {
