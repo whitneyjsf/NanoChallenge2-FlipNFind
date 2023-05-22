@@ -11,36 +11,22 @@ struct PopUpView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @Binding var elapsedTime: Int
+    @State private var isGameCompleted = false
 
     var body: some View {
+        
         ZStack {
-            
             VStack {
                 Text("Game Completed!")
                     .font(Font.system(size:33, design: .monospaced).bold())
+
                 Text("Time: \(elapsedTime) seconds")
                     .font(Font.system(size:20, design: .monospaced))
                     .padding()
-                
-                Button("Restart") {
-                    // Handle restart logic here
-                    // You can reset game state, shuffle cards, etc.
-                    
-                    // Dismiss the pop-up card
-                    presentationMode.wrappedValue.dismiss()
-                }
-                .padding()
-                
-                Button("Back to Menu") {
-                    // Handle back to menu logic here
-                    // You can navigate to a different view or dismiss the current view stack
-                    
-                    // Dismiss the pop-up card
-                    presentationMode.wrappedValue.dismiss()
-                }
-                .padding()
             }
         }
+        .background(Color.white)
+        .frame(width: 400, height: 300)
     }
 }
 

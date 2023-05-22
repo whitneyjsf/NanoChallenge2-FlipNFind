@@ -51,7 +51,7 @@ struct CardGameView: View {
                         }
                         LazyVGrid(columns: fourColumnGrid, spacing: 1){
                             ForEach(cards){card in
-                                CardGameViewModel(card: card, width: Int(geo.size.width/4 - 10), MatchedCards: $MatchedCards, UserChoices:$UserChoices, isGameCompleted: $isGameCompleted)
+                                CardGameViewModel(card: card, width: Int(geo.size.width/4 - 10), MatchedCards: $MatchedCards, UserChoices:$UserChoices, elapsedSeconds: $elapsedSeconds, isGameCompleted: $isGameCompleted)
                             }
                             .padding(.bottom, 10)
                         }
@@ -67,10 +67,10 @@ struct CardGameView: View {
         .onReceive(timer) { _ in
             let newElapsedSeconds = elapsedSeconds + 1
             elapsedSeconds = newElapsedSeconds
-            print("\(isGameCompleted)")
+//            print("\(isGameCompleted)")
 //            if isGameCompleted {
 //                timer.upstream.connect().cancel()
-////                timer.upstream.invalidate()
+//                timer.upstream.invalidate()
 //            }
         }
         .onAppear {
@@ -81,9 +81,11 @@ struct CardGameView: View {
         }
         .sheet(isPresented: $isGameCompleted) {
             PopUpView(elapsedTime: $elapsedSeconds)
+                .frame(width: 200, height: 200)
                 .onAppear{
                     timer.upstream.connect().cancel()
                 }
+                .background(Color.yellow.opacity(0.5))
         }
     }
 }

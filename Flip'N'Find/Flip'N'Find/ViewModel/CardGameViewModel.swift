@@ -16,7 +16,7 @@ struct CardGameViewModel: View {
     @Binding var MatchedCards:[Card]
     @Binding var UserChoices:[Card]
     
-    @State private var elapsedSeconds = 0
+    @Binding var elapsedSeconds: Int
     @Binding var isGameCompleted: Bool
     
     var body: some View {
@@ -69,7 +69,7 @@ struct CardGameViewModel: View {
         
         
         if MatchedCards.count == 16 {
-            print("udah selesai")
+//            print("udah selesai")
             let leaderboardEntry = LeaderboardEntry(context: CoreDataManager.shared.managedObjectContext)
             leaderboardEntry.timeInSeconds = Int64(elapsedSeconds)
             // Set other properties of the leaderboard entry if needed

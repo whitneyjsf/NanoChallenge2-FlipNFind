@@ -17,7 +17,6 @@ struct LeaderboardView: View {
             VStack {
                 Text("Leaderboard")
                     .font(Font.system(size:36, design: .monospaced).bold())
-                
             }
         }
         
