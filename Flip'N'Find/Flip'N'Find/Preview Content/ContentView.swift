@@ -10,12 +10,7 @@ import SpriteKit
 
 struct ContentView: View {
     var body: some View {
-        NavigationView {
-            VStack {
-                OnboardingView()
-            }
-        }
-        .navigationViewStyle(StackNavigationViewStyle())
+        OnboardingView()
     }
 }
 

@@ -10,6 +10,8 @@ import SpriteKit
 
 struct CardGameView: View {
     
+    @Binding var isShowing: Bool
+    
     private var fourColumnGrid = [GridItem(.flexible()),
                                   GridItem(.flexible()),
                                   GridItem(.flexible()),
@@ -29,6 +31,9 @@ struct CardGameView: View {
     
     @State private var isGameCompleted = false
     
+    init(isShowing: Binding<Bool>) {
+        self._isShowing = isShowing
+    }
     var body: some View {
         GeometryReader{geo in
             ZStack {
@@ -67,11 +72,11 @@ struct CardGameView: View {
         .onReceive(timer) { _ in
             let newElapsedSeconds = elapsedSeconds + 1
             elapsedSeconds = newElapsedSeconds
-//            print("\(isGameCompleted)")
-//            if isGameCompleted {
-//                timer.upstream.connect().cancel()
-//                timer.upstream.invalidate()
-//            }
+            //            print("\(isGameCompleted)")
+            //            if isGameCompleted {
+            //                timer.upstream.connect().cancel()
+            //                timer.upstream.invalidate()
+            //            }
         }
         .onAppear {
             timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -79,20 +84,28 @@ struct CardGameView: View {
         .onDisappear {
             timer.upstream.connect().cancel()
         }
-        .sheet(isPresented: $isGameCompleted) {
-            PopUpView(elapsedTime: $elapsedSeconds)
-                .frame(width: 200, height: 200)
-                .onAppear{
-                    timer.upstream.connect().cancel()
-                }
-                .background(Color.yellow.opacity(0.5))
+        .alert("Congratulations", isPresented: $isGameCompleted) {
+            Button("OK") {
+                isShowing = false
+            }
+        } message: {
+            Text("Time: \(elapsedSeconds) seconds")
         }
+        
+        //        .sheet(isPresented: $isGameCompleted) {
+        //            PopUpView(elapsedTime: $elapsedSeconds)
+        //                .frame(width: 200, height: 200)
+        //                .onAppear{
+        //                    timer.upstream.connect().cancel()
+        //                }
+        //                .background(Color.yellow.opacity(0.5))
+        //        }
     }
 }
 
 struct CardGameView_Previews: PreviewProvider {
     static var previews: some View {
-        CardGameView()
+        CardGameView(isShowing: .constant(true))
     }
 }
 
