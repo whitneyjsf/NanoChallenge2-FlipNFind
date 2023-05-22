@@ -10,7 +10,9 @@ import SpriteKit
 import AVFoundation
 
 struct OnboardingView: View {
+    
     @State private var isAnimatingButtonPlay = false
+    
     var body: some View {
         NavigationView {
             ZStack {

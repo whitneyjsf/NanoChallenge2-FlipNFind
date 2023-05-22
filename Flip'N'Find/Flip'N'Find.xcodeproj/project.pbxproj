@@ -22,6 +22,7 @@
 		DAD656EC2A1A56DF00681318 /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD656EB2A1A56DF00681318 /* TitleScene.swift */; };
 		DAD656EE2A1A58A900681318 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD656ED2A1A58A900681318 /* PopUpView.swift */; };
 		DAD656F22A1A599C00681318 /* LeaderboardUserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAD656F02A1A599C00681318 /* LeaderboardUserData.xcdatamodeld */; };
+		DAD656FA2A1ACB5C00681318 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD656F92A1ACB5C00681318 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		DAD656EB2A1A56DF00681318 /* TitleScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
 		DAD656ED2A1A58A900681318 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		DAD656F12A1A599C00681318 /* LeaderboardUserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LeaderboardUserData.xcdatamodel; sourceTree = "<group>"; };
+		DAD656F92A1ACB5C00681318 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				DAD656F02A1A599C00681318 /* LeaderboardUserData.xcdatamodeld */,
+				DAD656F92A1ACB5C00681318 /* CoreDataManager.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				DAD656EE2A1A58A900681318 /* PopUpView.swift in Sources */,
 				DA34071D2A1896E9000BEAEF /* CardGameViewModel.swift in Sources */,
 				DA3406D12A15C886000BEAEF /* OnboardingView.swift in Sources */,
+				DAD656FA2A1ACB5C00681318 /* CoreDataManager.swift in Sources */,
 				DA3406E02A1784CA000BEAEF /* CardGameView.swift in Sources */,
 				DA3406D52A1662DA000BEAEF /* LogoAnimationSceneView.swift in Sources */,
 				DA3406C52A15C1AC000BEAEF /* ContentView.swift in Sources */,

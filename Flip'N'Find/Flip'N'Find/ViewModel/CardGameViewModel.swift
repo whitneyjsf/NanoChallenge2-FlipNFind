@@ -16,6 +16,9 @@ struct CardGameViewModel: View {
     @Binding var MatchedCards:[Card]
     @Binding var UserChoices:[Card]
     
+    @State private var elapsedSeconds = 0
+    @Binding var isGameCompleted: Bool
+    
     var body: some View {
         if card.isFaceUp || MatchedCards.contains(where: {$0.id == card.id}) {
             Image(card.text)
@@ -39,6 +42,7 @@ struct CardGameViewModel: View {
                         .stroke(Color(red: 0, green: 0, blue: 0), lineWidth: 5)
                 )
                 .onTapGesture {
+//                    isGameCompleted = true
                     if UserChoices.count == 0 {
                         card.turnOver()
                         UserChoices.append(card)
@@ -63,21 +67,22 @@ struct CardGameViewModel: View {
         }
         UserChoices.removeAll()
         
-//        if MatchedCards.count == cards.count {
-//            // Show the popup or perform any desired action when all cards are matched
-//            showGameCompletedPopup()
-//        }
+        
+        if MatchedCards.count == 16 {
+            print("udah selesai")
+            let leaderboardEntry = LeaderboardEntry(context: CoreDataManager.shared.managedObjectContext)
+            leaderboardEntry.timeInSeconds = Int64(elapsedSeconds)
+            // Set other properties of the leaderboard entry if needed
+            // Save the managed object context to persist the entry
+            try? CoreDataManager.shared.managedObjectContext.save()
+            
+            // Show the popup or perform any desired action when all cards are matched
+            // Show the pop-up card
+            DispatchQueue.main.async {
+                isGameCompleted = true
+                
+            }
+        }
     }
-    
-//    func showGameCompletedPopup() {
-//        // Implement your code to show the game completed popup
-//        // This function will be called when all cards have been matched
-//        // You can use SwiftUI's Alert or a custom popup view to display the message
-//        // Example using SwiftUI's Alert:
-//        _ = Alert(title: Text("Congratulations!"), message: Text("You have completed the game."), dismissButton: .default(Text("OK")))
-//        // Present the alert using the appropriate SwiftUI view presentation method, such as .alert(isPresented:content:)
-//    }
-    
-    
 }
 
