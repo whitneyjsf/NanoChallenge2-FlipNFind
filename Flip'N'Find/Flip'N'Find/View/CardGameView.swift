@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SpriteKit
+import AVFoundation
 
 struct CardGameView: View {
     
@@ -30,10 +31,25 @@ struct CardGameView: View {
     @State var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     @State private var isGameCompleted = false
+    @State private var isAnimatingButtonPlay = false
     
+    private var soundPlayer: AVAudioPlayer?
+    @State private var shouldPlaySound = true
+
     init(isShowing: Binding<Bool>) {
         self._isShowing = isShowing
+        
+        guard let soundURL = Bundle.main.url(forResource: "pop-up-sound", withExtension: "mp3") else {
+            return
+        }
+        
+        do {
+            soundPlayer = try AVAudioPlayer(contentsOf: soundURL)
+        } catch {
+            print("Error loading sound: \(error.localizedDescription)")
+        }
     }
+    
     var body: some View {
         GeometryReader{geo in
             ZStack {
@@ -51,9 +67,15 @@ struct CardGameView: View {
                             .font(Font.system(size:30, design: .monospaced).bold())
                             .foregroundColor(.black)
                             .padding(.bottom, 60)
+                            .scaleEffect(isAnimatingButtonPlay ? 0.9 : 1.0)
+                            .onAppear {
+                                withAnimation(Animation.easeInOut(duration: 1.5).repeatForever()) {
+                                    self.isAnimatingButtonPlay.toggle()
+                                }
+                            }
                         HStack {
                             Text("Time: \(elapsedSeconds) seconds")
-                                .font(Font.system(size:25, design: .monospaced).bold())
+                                .font(Font.system(size:20, design: .monospaced).bold())
                                 .foregroundColor(.white)
                                 .padding(.bottom, 25)
                             Spacer()
@@ -88,21 +110,50 @@ struct CardGameView: View {
         .onDisappear {
             timer.upstream.connect().cancel()
         }
-        .alert("Woohoo! Great Job", isPresented: $isGameCompleted) {
-            Button("Close") {
-                isShowing = false
+        .alert(isPresented: $isGameCompleted) {
+            if shouldPlaySound {
+                soundPlayer?.play()
+//                shouldPlaySound = false
             }
-        } message: {
-            Text("Your best time is\n\n\(elapsedSeconds) seconds")
+            timer.upstream.connect().cancel() // Stop the timer
+            
+            return Alert(
+                title: Text("Woohoo! Great Job"),
+                message: Text("Your best time is \(elapsedSeconds) seconds"),
+                dismissButton: .default(Text("Close")) {
+                    isShowing = false
+                }
+            )
         }
+
+//        .alert(isPresented: $isGameCompleted) {
+//            // Play the sound when the alert appears if shouldPlaySound is true
+//            if shouldPlaySound {
+//                soundPlayer?.play()
+//            }
+//
+//            return Alert(
+//                title: Text("Woohoo! Great Job"),
+//                message: Text("Your best time is \(elapsedSeconds) seconds"),
+//                dismissButton: .default(Text("Close")) {
+//                    // Stop playing the sound if the user clicked the close button
+//                    isShowing = false
+//                    shouldPlaySound = false
+//                }
+//            )
+//        }
         
-        //        .sheet(isPresented: $isGameCompleted) {
-        //            PopUpView(elapsedTime: $elapsedSeconds)
-        //                .frame(width: 200, height: 200)
-        //                .onAppear{
-        //                    timer.upstream.connect().cancel()
+        //        .alert(isPresented: $isGameCompleted) {
+        //            // Play the sound when the alert appears
+        //            soundPlayer?.play()
+        //
+        //            return Alert(
+        //                title: Text("Woohoo! Great Job"),
+        //                message: Text("Your best time is \(elapsedSeconds) seconds"),
+        //                dismissButton: .default(Text("Close")) {
+        //                    isShowing = false
         //                }
-        //                .background(Color.yellow.opacity(0.5))
+        //            )
         //        }
     }
 }

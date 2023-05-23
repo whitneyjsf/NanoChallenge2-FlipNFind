@@ -17,6 +17,8 @@
 		DA3406E02A1784CA000BEAEF /* CardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3406DF2A1784CA000BEAEF /* CardGameView.swift */; };
 		DA3406E42A178597000BEAEF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3406E32A178597000BEAEF /* Card.swift */; };
 		DA34071D2A1896E9000BEAEF /* CardGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34071C2A1896E9000BEAEF /* CardGameViewModel.swift */; };
+		DA55BE532A1C5A3200809C75 /* background-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA55BE522A1C5A3200809C75 /* background-sound.mp3 */; };
+		DA55BE552A1C5CF000809C75 /* pop-up-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA55BE542A1C5CF000809C75 /* pop-up-sound.mp3 */; };
 		DAD656E62A1A4C1200681318 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD656E52A1A4C1200681318 /* SoundManager.swift */; };
 		DAD656E82A1A4CB800681318 /* button-click-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DAD656E72A1A4CB800681318 /* button-click-sound.mp3 */; };
 		DAD656EE2A1A58A900681318 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD656ED2A1A58A900681318 /* PopUpView.swift */; };
@@ -25,7 +27,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DA3406BF2A15C1AC000BEAEF /* Flip'N'Find.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Flip'N'Find.app"; path = "/Users/whitneyprajnapundarika/Documents/NC2/Flip'N'Find/build/Debug-iphoneos/Flip'N'Find.app"; sourceTree = "<absolute>"; };
 		DA3406C22A15C1AC000BEAEF /* Flip_N_FindApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flip_N_FindApp.swift; sourceTree = "<group>"; };
 		DA3406C42A15C1AC000BEAEF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DA3406C62A15C1AD000BEAEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -36,6 +37,9 @@
 		DA3406DF2A1784CA000BEAEF /* CardGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameView.swift; sourceTree = "<group>"; };
 		DA3406E32A178597000BEAEF /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		DA34071C2A1896E9000BEAEF /* CardGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameViewModel.swift; sourceTree = "<group>"; };
+		DA55BE512A1BBA2200809C75 /* Flip'N'Find.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flip'N'Find.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA55BE522A1C5A3200809C75 /* background-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "background-sound.mp3"; path = "../../../../Downloads/background-sound.mp3"; sourceTree = "<group>"; };
+		DA55BE542A1C5CF000809C75 /* pop-up-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "pop-up-sound.mp3"; path = "../../../../Downloads/pop-up-sound.mp3"; sourceTree = "<group>"; };
 		DAD656E52A1A4C1200681318 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		DAD656E72A1A4CB800681318 /* button-click-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "button-click-sound.mp3"; path = "../../../../Downloads/button-click-sound.mp3"; sourceTree = "<group>"; };
 		DAD656ED2A1A58A900681318 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
@@ -59,6 +63,7 @@
 			children = (
 				DA3406C12A15C1AC000BEAEF /* Flip'N'Find */,
 				DA3406EC2A17E5D6000BEAEF /* Assets */,
+				DA55BE512A1BBA2200809C75 /* Flip'N'Find.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +131,8 @@
 				DA3406C92A15C1AD000BEAEF /* Preview Assets.xcassets */,
 				DA3406C62A15C1AD000BEAEF /* Assets.xcassets */,
 				DAD656E72A1A4CB800681318 /* button-click-sound.mp3 */,
+				DA55BE522A1C5A3200809C75 /* background-sound.mp3 */,
+				DA55BE542A1C5CF000809C75 /* pop-up-sound.mp3 */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -156,7 +163,7 @@
 			);
 			name = "Flip'N'Find";
 			productName = "Flip'N'Find";
-			productReference = DA3406BF2A15C1AC000BEAEF /* Flip'N'Find.app */;
+			productReference = DA55BE512A1BBA2200809C75 /* Flip'N'Find.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -197,7 +204,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA55BE532A1C5A3200809C75 /* background-sound.mp3 in Resources */,
 				DA3406CA2A15C1AD000BEAEF /* Preview Assets.xcassets in Resources */,
+				DA55BE552A1C5CF000809C75 /* pop-up-sound.mp3 in Resources */,
 				DA3406C72A15C1AD000BEAEF /* Assets.xcassets in Resources */,
 				DAD656E82A1A4CB800681318 /* button-click-sound.mp3 in Resources */,
 			);

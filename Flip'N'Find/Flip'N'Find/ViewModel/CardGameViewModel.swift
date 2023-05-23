@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SpriteKit
+import AVFoundation
 
 struct CardGameViewModel: View {
     
@@ -19,6 +20,8 @@ struct CardGameViewModel: View {
     @Binding var elapsedSeconds: Int
     @Binding var isGameCompleted: Bool
     
+    private var soundPlayer: AVAudioPlayer?
+
     var body: some View {
         if card.isFaceUp || MatchedCards.contains(where: {$0.id == card.id}) {
             Image(card.text)
@@ -60,10 +63,30 @@ struct CardGameViewModel: View {
         }
     }
     
+    init(card: Card, width: Int, MatchedCards: Binding<[Card]>, UserChoices: Binding<[Card]>, elapsedSeconds: Binding<Int>, isGameCompleted: Binding<Bool>) {
+        self.card = card
+        self.width = width
+        _MatchedCards = MatchedCards
+        _UserChoices = UserChoices
+        _elapsedSeconds = elapsedSeconds
+        _isGameCompleted = isGameCompleted
+        
+        guard let soundURL = Bundle.main.url(forResource: "button-click-sound", withExtension: "mp3") else {
+            return
+        }
+        
+        do {
+            soundPlayer = try AVAudioPlayer(contentsOf: soundURL)
+        } catch {
+            print("Error loading sound: \(error.localizedDescription)")
+        }
+    }
+
     func checkForMatch() {
         if UserChoices[0].text == UserChoices[1].text {
             MatchedCards.append(UserChoices[0])
             MatchedCards.append(UserChoices[1])
+            soundPlayer?.play()
         }
         UserChoices.removeAll()
         

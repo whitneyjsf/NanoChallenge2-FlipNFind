@@ -25,3 +25,21 @@ class SoundManager {
         }
     }
 }
+
+class BackgroundSoundManager {
+    static let instance1 = BackgroundSoundManager()
+    
+    var player: AVAudioPlayer?
+    
+    func playBackgroundSound() {
+        guard let url = Bundle.main.url(forResource: "background-sound", withExtension: ".mp3") else {
+            return
+        }
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.play()
+        } catch {
+            print("error playing sound \(error.localizedDescription)")
+        }
+    }
+}
