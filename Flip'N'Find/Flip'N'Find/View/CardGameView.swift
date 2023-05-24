@@ -35,7 +35,7 @@ struct CardGameView: View {
     
     private var soundPlayer: AVAudioPlayer?
     @State private var shouldPlaySound = true
-
+    
     init(isShowing: Binding<Bool>) {
         self._isShowing = isShowing
         
@@ -58,10 +58,7 @@ struct CardGameView: View {
                     .scaledToFill()
                     .edgesIgnoringSafeArea(.all)
                 ZStack {
-//                    Rectangle()
-//                        .foregroundColor(.white)
-//                        .frame(width: 400, height: 500)
-//                        .padding(.top, 75)
+                    //                    Spacer()
                     VStack{
                         Text("Match the animals!")
                             .font(Font.system(size:30, design: .monospaced).bold())
@@ -90,8 +87,18 @@ struct CardGameView: View {
                         
                     }
                     .padding()
+                    
                 }
                 .padding(.bottom, 48)
+            }
+            VStack {
+                HStack {
+                    GameBackButton(isShowing: $isShowing)
+                    Spacer()
+                }
+                .padding(.horizontal, 32)
+                .padding(.vertical)
+                Spacer()
             }
         }
         .padding(-4)
@@ -118,6 +125,23 @@ struct CardGameView: View {
                     isShowing = false
                 }
             )
+        }
+    }
+}
+
+struct GameBackButton: View {
+    @Environment(\.presentationMode) var presentationMode
+    @Binding var isShowing: Bool
+    
+    var body: some View {
+        Button(action: {
+            presentationMode.wrappedValue.dismiss()
+            isShowing = false
+        }) {
+            Image(systemName: "chevron.left")
+                .resizable()
+                .foregroundColor(.black)
+                .frame(width: 20, height: 30)
         }
     }
 }

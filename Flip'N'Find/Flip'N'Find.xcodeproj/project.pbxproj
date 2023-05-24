@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA14F4102A1DF5F700282801 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14F40F2A1DF5F700282801 /* GameOverScene.swift */; };
+		DA14F4132A1DF9E400282801 /* spark.sks in Resources */ = {isa = PBXBuildFile; fileRef = DA14F4112A1DF9E400282801 /* spark.sks */; };
+		DA14F4142A1DF9E400282801 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA14F4122A1DF9E400282801 /* Assets.xcassets */; };
 		DA3406C32A15C1AC000BEAEF /* Flip_N_FindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3406C22A15C1AC000BEAEF /* Flip_N_FindApp.swift */; };
 		DA3406C52A15C1AC000BEAEF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3406C42A15C1AC000BEAEF /* ContentView.swift */; };
 		DA3406C72A15C1AD000BEAEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA3406C62A15C1AD000BEAEF /* Assets.xcassets */; };
@@ -25,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA14F40F2A1DF5F700282801 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		DA14F4112A1DF9E400282801 /* spark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = spark.sks; sourceTree = "<group>"; };
+		DA14F4122A1DF9E400282801 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA3406C22A15C1AC000BEAEF /* Flip_N_FindApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flip_N_FindApp.swift; sourceTree = "<group>"; };
 		DA3406C42A15C1AC000BEAEF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DA3406C62A15C1AD000BEAEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -116,6 +122,9 @@
 			children = (
 				DA3406D42A1662DA000BEAEF /* LogoAnimationSceneView.swift */,
 				DA55BE862A1C81F500809C75 /* GameScene.swift */,
+				DA14F40F2A1DF5F700282801 /* GameOverScene.swift */,
+				DA14F4112A1DF9E400282801 /* spark.sks */,
+				DA14F4122A1DF9E400282801 /* Assets.xcassets */,
 			);
 			path = SpriteKitView;
 			sourceTree = "<group>";
@@ -191,8 +200,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA3406CA2A15C1AD000BEAEF /* Preview Assets.xcassets in Resources */,
+				DA14F4132A1DF9E400282801 /* spark.sks in Resources */,
 				DA55BE822A1C7E6C00809C75 /* pop-up-sound.mp3 in Resources */,
 				DA3406C72A15C1AD000BEAEF /* Assets.xcassets in Resources */,
+				DA14F4142A1DF9E400282801 /* Assets.xcassets in Resources */,
 				DA55BE812A1C7E6C00809C75 /* button-click-sound.mp3 in Resources */,
 				DA55BE832A1C7E6C00809C75 /* background-sound.mp3 in Resources */,
 			);
@@ -207,6 +218,7 @@
 			files = (
 				DA34071D2A1896E9000BEAEF /* CardGameViewModel.swift in Sources */,
 				DA3406D12A15C886000BEAEF /* OnboardingView.swift in Sources */,
+				DA14F4102A1DF5F700282801 /* GameOverScene.swift in Sources */,
 				DA55BE892A1C863F00809C75 /* MiniGameView.swift in Sources */,
 				DA3406E02A1784CA000BEAEF /* CardGameView.swift in Sources */,
 				DA3406D52A1662DA000BEAEF /* LogoAnimationSceneView.swift in Sources */,

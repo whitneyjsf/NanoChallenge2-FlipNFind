@@ -7,6 +7,7 @@
 
 import Foundation
 import SpriteKit
+import SwiftUI
 
 class GameScene1: SKScene, SKPhysicsContactDelegate{
     
@@ -18,23 +19,21 @@ class GameScene1: SKScene, SKPhysicsContactDelegate{
         case paddel = 0b10 //2
         case brick = 0b100 //4
         case ball = 0b1000 //8
-
+        
     }
     
     override func didMove(to view: SKView) {
         scene?.size = view.bounds.size
         scene?.scaleMode = .aspectFill
         physicsWorld.gravity = .zero
-        //        self.backgroundColor = .clear
         physicsWorld.contactDelegate = self
+        self.isPaused = true
         
         //Background
         let background = SKSpriteNode(imageNamed: "2")
         background.position = CGPoint(x: size.width / 2, y: size.height / 2)
         background.zPosition = -1  // Set the zPosition to make it appear behind other nodes
         addChild(background)
-        
-        
         
         //Player and ball
         paddel.position = CGPoint(x: size.width / 2, y: 25)
@@ -87,6 +86,10 @@ class GameScene1: SKScene, SKPhysicsContactDelegate{
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.isPaused = false
+    }
+    
     override func update(_ currentTime: TimeInterval) {
         if paddel.position.x < 50 {
             paddel.position.x = 50
@@ -115,50 +118,36 @@ class GameScene1: SKScene, SKPhysicsContactDelegate{
         }
     }
     
+    func gameOver() {
+        let gameOverScene = GameOverScene(size: self.size)
+//        let transition = SKTransition.flipVertical(withDuration: 2)
+        scene?.view?.presentScene(gameOverScene)
+    }
+    
     func didBegin(_ contact: SKPhysicsContact) {
-            let contactA: SKPhysicsBody
-            let contactB: SKPhysicsBody
-
-            if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
-                contactA = contact.bodyA
-                contactB = contact.bodyB
-            } else {
-                contactA = contact.bodyB
-                contactB = contact.bodyA
-            }
+        let contactA: SKPhysicsBody
+        let contactB: SKPhysicsBody
+        
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            contactA = contact.bodyA
+            contactB = contact.bodyB
+        } else {
+            contactA = contact.bodyB
+            contactB = contact.bodyA
+        }
         print(contactA.categoryBitMask, contactB.categoryBitMask)
-            if contactA.categoryBitMask == bitmasks.brick.rawValue {
-//                if contactB.categoryBitMask == bitmasks.brick.rawValue {
-                    contactA.node?.removeFromParent()
-                    print("Brick contact")
-//                } else if contactB.categoryBitMask == bitmasks.frame.rawValue {
-//                    contactA.node?.removeFromParent()
-//                    print("Bottom frame contact")
-//                }
+        if contactA.categoryBitMask == bitmasks.brick.rawValue {
+            contactA.node?.removeFromParent()
+            print("Brick contact")
+        }
+        
+        if contactA.categoryBitMask == bitmasks.frame.rawValue && contactA.categoryBitMask == bitmasks.frame.rawValue {
+            let yPos = contact.contactPoint.y
+            
+            if yPos <= self.frame.minY + 10 {
+                gameOver()
             }
         }
-
-//    func didBegin(_ contact: SKPhysicsContact) {
-//        let contactA: SKPhysicsBody
-//        let contactB: SKPhysicsBody
-//
-//        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
-//            contactA = contact.bodyA
-//            contactB = contact.bodyB
-//        } else {
-//            contactA = contact.bodyB
-//            contactB = contact.bodyA
-//        }
-//
-//        if contact.bodyA.categoryBitMask == bitmasks.brick.rawValue && contact.bodyB.categoryBitMask == bitmasks.ball.rawValue {
-//            contact.bodyA.node?.removeFromParent()
-//            print("A")
-//        }
-//
-//        if contact.bodyA.categoryBitMask == bitmasks.frame.rawValue && contact.bodyB.categoryBitMask == bitmasks.ball.rawValue {
-//            // Ball touches the bottom frame
-//            contact.bodyB.node?.removeFromParent()
-//            print("B")
-//        }
-//    }
+    }
+    
 }
