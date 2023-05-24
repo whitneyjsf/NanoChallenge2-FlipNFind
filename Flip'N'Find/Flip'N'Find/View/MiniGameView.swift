@@ -10,7 +10,7 @@ import SpriteKit
 
 struct MiniGameView: View {
     
-    @Binding var isShowing1: Bool
+//    @Binding var isShowing1: Bool
     
     var scene: SKScene {
         let scene = GameScene1()
@@ -26,6 +26,6 @@ struct MiniGameView: View {
 
 struct MiniGameView_Previews: PreviewProvider {
     static var previews: some View {
-        MiniGameView(isShowing1: .constant(true))
+        MiniGameView()
     }
 }

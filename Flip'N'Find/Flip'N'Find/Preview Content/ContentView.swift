@@ -14,11 +14,11 @@ struct ContentView: View {
     let backgroundSoundManager = BackgroundSoundManager()
     
     var body: some View {
-        OnboardingView()
-            .onAppear {
-                backgroundSoundManager.playBackgroundSound()
-            }
-//        MiniGameView()
+//        OnboardingView()
+//            .onAppear {
+//                backgroundSoundManager.playBackgroundSound()
+//            }
+        MiniGameView()
     }
     
     

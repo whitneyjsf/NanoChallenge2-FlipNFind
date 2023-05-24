@@ -17,7 +17,7 @@ class GameScene1: SKScene, SKPhysicsContactDelegate{
         case frame = 0b1 //1
         case paddel = 0b10 //2
         case brick = 0b100 //4
-        case ball = 0b1000 //5
+        case ball = 0b1000 //8
 
     }
     
@@ -33,6 +33,8 @@ class GameScene1: SKScene, SKPhysicsContactDelegate{
         background.position = CGPoint(x: size.width / 2, y: size.height / 2)
         background.zPosition = -1  // Set the zPosition to make it appear behind other nodes
         addChild(background)
+        
+        
         
         //Player and ball
         paddel.position = CGPoint(x: size.width / 2, y: 25)
@@ -113,28 +115,28 @@ class GameScene1: SKScene, SKPhysicsContactDelegate{
         }
     }
     
-//    func didBegin(_ contact: SKPhysicsContact) {
-//            let contactA: SKPhysicsBody
-//            let contactB: SKPhysicsBody
-//
-//            if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
-//                contactA = contact.bodyA
-//                contactB = contact.bodyB
-//            } else {
-//                contactA = contact.bodyB
-//                contactB = contact.bodyA
-//            }
-//
-//            if contactA.categoryBitMask == bitmasks.ball.rawValue {
+    func didBegin(_ contact: SKPhysicsContact) {
+            let contactA: SKPhysicsBody
+            let contactB: SKPhysicsBody
+
+            if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+                contactA = contact.bodyA
+                contactB = contact.bodyB
+            } else {
+                contactA = contact.bodyB
+                contactB = contact.bodyA
+            }
+        print(contactA.categoryBitMask, contactB.categoryBitMask)
+            if contactA.categoryBitMask == bitmasks.brick.rawValue {
 //                if contactB.categoryBitMask == bitmasks.brick.rawValue {
-//                    contactB.node?.removeFromParent()
-//                    print("Brick contact")
+                    contactA.node?.removeFromParent()
+                    print("Brick contact")
 //                } else if contactB.categoryBitMask == bitmasks.frame.rawValue {
 //                    contactA.node?.removeFromParent()
 //                    print("Bottom frame contact")
 //                }
-//            }
-//        }
+            }
+        }
 
 //    func didBegin(_ contact: SKPhysicsContact) {
 //        let contactA: SKPhysicsBody

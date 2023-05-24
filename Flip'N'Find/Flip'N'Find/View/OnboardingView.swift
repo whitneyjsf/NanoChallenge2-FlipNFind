@@ -14,7 +14,7 @@ struct OnboardingView: View {
     @State private var isAnimatingButtonPlay = false
     @State private var isShowing = false
     @State private var isShowing1 = false
-
+    
     var body: some View {
         ZStack{
             Image("1")
@@ -66,16 +66,15 @@ struct OnboardingView: View {
             .padding(.bottom, 30)
         }.fullScreenCover(isPresented: $isShowing){
             CardGameView(isShowing: $isShowing)
-        }.fullScreenCover(isPresented: $isShowing1) {
-            MiniGameView(isShowing1: $isShowing1)
+            //        }.fullScreenCover(isPresented: $isShowing1) {
+            //            MiniGameView(isShowing1: $isShowing1)
+            //        }
+        }
+    }
+    
+    struct OnboardingView_Previews: PreviewProvider {
+        static var previews: some View {
+            OnboardingView()
         }
     }
 }
-
-struct OnboardingView_Previews: PreviewProvider {
-    static var previews: some View {
-        OnboardingView()
-    }
-}
-
-
