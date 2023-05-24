@@ -16,12 +16,12 @@ struct CardGameView: View {
     private var fourColumnGrid = [GridItem(.flexible()),
                                   GridItem(.flexible()),
                                   GridItem(.flexible()),
-                                  GridItem(.flexible()),]
+                                  GridItem(.flexible())]
     
     private var fourRowGrid = [GridItem(.flexible()),
                                GridItem(.flexible()),
                                GridItem(.flexible()),
-                               GridItem(.flexible()),]
+                               GridItem(.flexible())]
     
     @State var cards = createCardList().shuffled()
     @State var MatchedCards = [Card]()
@@ -53,15 +53,15 @@ struct CardGameView: View {
     var body: some View {
         GeometryReader{geo in
             ZStack {
-                Image("Background-1")
+                Image("2")
                     .resizable()
                     .scaledToFill()
                     .edgesIgnoringSafeArea(.all)
                 ZStack {
-                    Rectangle()
-                        .foregroundColor(.mint)
-                        .frame(width: 400, height: 500)
-                        .padding(.top, 75)
+//                    Rectangle()
+//                        .foregroundColor(.white)
+//                        .frame(width: 400, height: 500)
+//                        .padding(.top, 75)
                     VStack{
                         Text("Match the animals!")
                             .font(Font.system(size:30, design: .monospaced).bold())
@@ -76,7 +76,7 @@ struct CardGameView: View {
                         HStack {
                             Text("Time: \(elapsedSeconds) seconds")
                                 .font(Font.system(size:20, design: .monospaced).bold())
-                                .foregroundColor(.white)
+                                .foregroundColor(.black)
                                 .padding(.bottom, 25)
                             Spacer()
                         }
@@ -98,11 +98,6 @@ struct CardGameView: View {
         .onReceive(timer) { _ in
             let newElapsedSeconds = elapsedSeconds + 1
             elapsedSeconds = newElapsedSeconds
-            //            print("\(isGameCompleted)")
-            //            if isGameCompleted {
-            //                timer.upstream.connect().cancel()
-            //                timer.upstream.invalidate()
-            //            }
         }
         .onAppear {
             timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -113,7 +108,6 @@ struct CardGameView: View {
         .alert(isPresented: $isGameCompleted) {
             if shouldPlaySound {
                 soundPlayer?.play()
-//                shouldPlaySound = false
             }
             timer.upstream.connect().cancel() // Stop the timer
             
@@ -125,36 +119,6 @@ struct CardGameView: View {
                 }
             )
         }
-
-//        .alert(isPresented: $isGameCompleted) {
-//            // Play the sound when the alert appears if shouldPlaySound is true
-//            if shouldPlaySound {
-//                soundPlayer?.play()
-//            }
-//
-//            return Alert(
-//                title: Text("Woohoo! Great Job"),
-//                message: Text("Your best time is \(elapsedSeconds) seconds"),
-//                dismissButton: .default(Text("Close")) {
-//                    // Stop playing the sound if the user clicked the close button
-//                    isShowing = false
-//                    shouldPlaySound = false
-//                }
-//            )
-//        }
-        
-        //        .alert(isPresented: $isGameCompleted) {
-        //            // Play the sound when the alert appears
-        //            soundPlayer?.play()
-        //
-        //            return Alert(
-        //                title: Text("Woohoo! Great Job"),
-        //                message: Text("Your best time is \(elapsedSeconds) seconds"),
-        //                dismissButton: .default(Text("Close")) {
-        //                    isShowing = false
-        //                }
-        //            )
-        //        }
     }
 }
 

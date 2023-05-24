@@ -21,7 +21,7 @@ struct CardGameViewModel: View {
     @Binding var isGameCompleted: Bool
     
     private var soundPlayer: AVAudioPlayer?
-
+    
     var body: some View {
         if card.isFaceUp || MatchedCards.contains(where: {$0.id == card.id}) {
             Image(card.text)
@@ -38,14 +38,14 @@ struct CardGameViewModel: View {
                 .font(.system(size: 50))
                 .padding()
                 .frame(width: CGFloat(width),height: CGFloat(width))
-                .background(Color(.white))
+                .background(Color(.systemMint))
                 .cornerRadius(9)
                 .overlay(
                     RoundedRectangle(cornerRadius: 9)
                         .stroke(Color(red: 0, green: 0, blue: 0), lineWidth: 5)
                 )
                 .onTapGesture {
-//                    isGameCompleted = true
+                    //                    isGameCompleted = true
                     if UserChoices.count == 0 {
                         card.turnOver()
                         UserChoices.append(card)
@@ -81,7 +81,7 @@ struct CardGameViewModel: View {
             print("Error loading sound: \(error.localizedDescription)")
         }
     }
-
+    
     func checkForMatch() {
         if UserChoices[0].text == UserChoices[1].text {
             MatchedCards.append(UserChoices[0])
@@ -92,12 +92,12 @@ struct CardGameViewModel: View {
         
         
         if MatchedCards.count == 16 {
-//            print("udah selesai")
-            let leaderboardEntry = LeaderboardEntry(context: CoreDataManager.shared.managedObjectContext)
-            leaderboardEntry.timeInSeconds = Int64(elapsedSeconds)
-            // Set other properties of the leaderboard entry if needed
-            // Save the managed object context to persist the entry
-            try? CoreDataManager.shared.managedObjectContext.save()
+            //            print("udah selesai")
+            //            let leaderboardEntry = LeaderboardEntry(context: CoreDataManager.shared.managedObjectContext)
+            //            leaderboardEntry.timeInSeconds = Int64(elapsedSeconds)
+            //            // Set other properties of the leaderboard entry if needed
+            //            // Save the managed object context to persist the entry
+            //            try? CoreDataManager.shared.managedObjectContext.save()
             
             // Show the popup or perform any desired action when all cards are matched
             // Show the pop-up card

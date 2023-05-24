@@ -12,32 +12,25 @@ import AVFoundation
 struct OnboardingView: View {
     
     @State private var isAnimatingButtonPlay = false
-    
     @State private var isShowing = false
-    
+    @State private var isShowing1 = false
+
     var body: some View {
         ZStack{
             Image("1")
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
-            //            ZStack {
-            //                SpriteView(scene: BackgroundScene(size: CGSize(width: 1000, height: 1000)))
-            //                    .frame(width: 1000, height: 1000)
-            //                    .padding(.bottom, 40)
-            //            }.edgesIgnoringSafeArea(.all)
             VStack{
                 Image("Image-FlipFindText")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 350, height: 350)
-//                Text("Animal's Memory Games")
-//                    .font(Font.system(size:22, design: .monospaced).bold())
-                    .padding(.bottom, 40)
+                    .padding(.bottom, 10)
                 SpriteView(scene: GameScene(size: CGSize(width: 250, height: 250)))
                     .background(Color.clear)
                     .frame(width: 200, height: 200)
-                    .padding(.bottom, 40)
+                    .padding(.bottom, 30)
                 Button{
                     isShowing = true
                     SoundManager.instance.playSound()
@@ -56,11 +49,25 @@ struct OnboardingView: View {
                         self.isAnimatingButtonPlay.toggle()
                     }
                 }
+                Button{
+                    isShowing1 = true
+                    SoundManager.instance.playSound()
+                }label: {
+                    Text("Mini Games")
+                        .font(Font.system(size:20, design: .monospaced))
+                        .foregroundColor(.white)
+                        .frame(width:200, height: 40)
+                        .background(Color.mint)
+                        .cornerRadius(8)
+                        .padding(.bottom,5)
+                }
                 .padding()
             }
             .padding(.bottom, 30)
         }.fullScreenCover(isPresented: $isShowing){
             CardGameView(isShowing: $isShowing)
+        }.fullScreenCover(isPresented: $isShowing1) {
+            MiniGameView(isShowing1: $isShowing1)
         }
     }
 }

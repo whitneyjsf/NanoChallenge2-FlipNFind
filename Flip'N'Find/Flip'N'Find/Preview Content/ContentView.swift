@@ -18,6 +18,7 @@ struct ContentView: View {
             .onAppear {
                 backgroundSoundManager.playBackgroundSound()
             }
+//        MiniGameView()
     }
     
     
