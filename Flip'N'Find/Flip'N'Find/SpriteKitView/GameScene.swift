@@ -120,8 +120,12 @@ class GameScene1: SKScene, SKPhysicsContactDelegate{
     
     func gameOver() {
         let gameOverScene = GameOverScene(size: self.size)
-//        let transition = SKTransition.flipVertical(withDuration: 2)
         scene?.view?.presentScene(gameOverScene)
+    }
+    
+    func gameWin() {
+        let gameWinScene = GameWinScene(size: self.size)
+        scene?.view?.presentScene(gameWinScene)
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -146,6 +150,10 @@ class GameScene1: SKScene, SKPhysicsContactDelegate{
             
             if yPos <= self.frame.minY + 10 {
                 gameOver()
+            } else {
+                if self.children.filter({ $0.physicsBody?.categoryBitMask == bitmasks.brick.rawValue }).count == 0 {
+                    gameWin()
+                }
             }
         }
     }

@@ -19,11 +19,6 @@ class GameOverScene: SKScene {
         gameOver.setScale(1.1)
         gameOver.zPosition = 5
         addChild(gameOver)
-        
-//        let spark = SKEffectNode(fileNamed: "spark")
-//        spark?.position = CGPoint(x: gameOver.position.x, y: gameOver.position.y - gameOver.size.height / 2)
-//        spark?.zPosition = 4
-//        addChild(spark!)
     }
 }
 
