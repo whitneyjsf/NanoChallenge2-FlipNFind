@@ -24,10 +24,6 @@ struct MiniGameView: View {
         ZStack {
             SpriteView(scene: scene)
                 .ignoresSafeArea()
-//            GeometryReader { value in
-//                MiniGame(size: value.size)
-//            }
-//            .padding()
             VStack {
                 HStack {
                     BackButton(isShowing1: $isShowing1)

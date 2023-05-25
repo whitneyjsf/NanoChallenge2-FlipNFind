@@ -23,6 +23,8 @@
 		DA55BE872A1C81F500809C75 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55BE862A1C81F500809C75 /* GameScene.swift */; };
 		DA55BE892A1C863F00809C75 /* MiniGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55BE882A1C863F00809C75 /* MiniGameView.swift */; };
 		DA878DF72A1E4B3C00CAB8F2 /* GameWinScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA878DF62A1E4B3C00CAB8F2 /* GameWinScene.swift */; };
+		DA878DFC2A1E506600CAB8F2 /* game-over-sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA878DFA2A1E506600CAB8F2 /* game-over-sound.wav */; };
+		DA878DFD2A1E506600CAB8F2 /* game-win-sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA878DFB2A1E506600CAB8F2 /* game-win-sound.wav */; };
 		DAD656E62A1A4C1200681318 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD656E52A1A4C1200681318 /* SoundManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +46,10 @@
 		DA55BE862A1C81F500809C75 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		DA55BE882A1C863F00809C75 /* MiniGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGameView.swift; sourceTree = "<group>"; };
 		DA878DF62A1E4B3C00CAB8F2 /* GameWinScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWinScene.swift; sourceTree = "<group>"; };
+		DA878DFA2A1E506600CAB8F2 /* game-over-sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "game-over-sound.wav"; path = "../../../../Downloads/game-over-sound.wav"; sourceTree = "<group>"; };
+		DA878DFB2A1E506600CAB8F2 /* game-win-sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "game-win-sound.wav"; path = "../../../../Downloads/game-win-sound.wav"; sourceTree = "<group>"; };
+		DA878DFE2A1E544C00CAB8F2 /* game-over-sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "game-over-sound.wav"; sourceTree = "<group>"; };
+		DA878DFF2A1E544C00CAB8F2 /* game-win-sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "game-win-sound.wav"; sourceTree = "<group>"; };
 		DAD656E52A1A4C1200681318 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +124,8 @@
 		DA3406EB2A17CBAE000BEAEF /* SpriteKitView */ = {
 			isa = PBXGroup;
 			children = (
+				DA878DFE2A1E544C00CAB8F2 /* game-over-sound.wav */,
+				DA878DFF2A1E544C00CAB8F2 /* game-win-sound.wav */,
 				DA3406D42A1662DA000BEAEF /* LogoAnimationSceneView.swift */,
 				DA55BE862A1C81F500809C75 /* GameScene.swift */,
 				DA14F40F2A1DF5F700282801 /* GameOverScene.swift */,
@@ -132,6 +140,8 @@
 				DA3406C92A15C1AD000BEAEF /* Preview Assets.xcassets */,
 				DA3406C62A15C1AD000BEAEF /* Assets.xcassets */,
 				DA55BE802A1C7E6C00809C75 /* background-sound.mp3 */,
+				DA878DFA2A1E506600CAB8F2 /* game-over-sound.wav */,
+				DA878DFB2A1E506600CAB8F2 /* game-win-sound.wav */,
 				DA55BE7E2A1C7E6C00809C75 /* button-click-sound.mp3 */,
 				DA55BE7F2A1C7E6C00809C75 /* pop-up-sound.mp3 */,
 			);
@@ -198,8 +208,10 @@
 			files = (
 				DA3406CA2A15C1AD000BEAEF /* Preview Assets.xcassets in Resources */,
 				DA55BE822A1C7E6C00809C75 /* pop-up-sound.mp3 in Resources */,
+				DA878DFC2A1E506600CAB8F2 /* game-over-sound.wav in Resources */,
 				DA3406C72A15C1AD000BEAEF /* Assets.xcassets in Resources */,
 				DA55BE812A1C7E6C00809C75 /* button-click-sound.mp3 in Resources */,
+				DA878DFD2A1E506600CAB8F2 /* game-win-sound.wav in Resources */,
 				DA55BE832A1C7E6C00809C75 /* background-sound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,6 +371,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -388,6 +401,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

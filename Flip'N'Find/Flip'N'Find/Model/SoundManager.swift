@@ -37,6 +37,7 @@ class BackgroundSoundManager {
         }
         do {
             player = try AVAudioPlayer(contentsOf: url)
+            player?.numberOfLoops = -1 
             player?.play()
         } catch {
             print("error playing sound \(error.localizedDescription)")

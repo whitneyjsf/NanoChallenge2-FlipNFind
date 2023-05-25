@@ -14,6 +14,10 @@ class GameScene1: SKScene, SKPhysicsContactDelegate{
     let paddel = SKSpriteNode(imageNamed: "Paddle-1")
     let ball = SKSpriteNode(imageNamed: "Ball")
     
+    let gameOverSound = SKAction.playSoundFileNamed("game-over-sound.wav", waitForCompletion: false)
+    let gameWinSound = SKAction.playSoundFileNamed("game-win-sound.wav", waitForCompletion: false)
+
+    
     enum bitmasks: UInt32 {
         case frame = 0b1 //1
         case paddel = 0b10 //2
@@ -35,8 +39,22 @@ class GameScene1: SKScene, SKPhysicsContactDelegate{
         background.zPosition = -1  // Set the zPosition to make it appear behind other nodes
         addChild(background)
         
+//        //Player and ball
+//        paddel.position = CGPoint(x: size.width / 2, y: 25)
+//        paddel.zPosition = 10
+//        paddel.physicsBody = SKPhysicsBody(rectangleOf: paddel.size)
+//        paddel.physicsBody?.friction = 0
+//        paddel.physicsBody?.allowsRotation = false
+//        paddel.physicsBody?.restitution = 1
+//        paddel.physicsBody?.isDynamic = false
+//        paddel.physicsBody?.categoryBitMask = bitmasks.paddel.rawValue
+//        paddel.physicsBody?.contactTestBitMask = bitmasks.ball.rawValue
+//        paddel.physicsBody?.collisionBitMask = bitmasks.ball.rawValue
+//        addChild(paddel)
+        
         //Player and ball
-        paddel.position = CGPoint(x: size.width / 2, y: 25)
+        let paddleHeightOffset: CGFloat = 20 // Adjust this value as needed
+        paddel.position = CGPoint(x: size.width / 2, y: 25 + paddleHeightOffset)
         paddel.zPosition = 10
         paddel.physicsBody = SKPhysicsBody(rectangleOf: paddel.size)
         paddel.physicsBody?.friction = 0
@@ -47,7 +65,7 @@ class GameScene1: SKScene, SKPhysicsContactDelegate{
         paddel.physicsBody?.contactTestBitMask = bitmasks.ball.rawValue
         paddel.physicsBody?.collisionBitMask = bitmasks.ball.rawValue
         addChild(paddel)
-        
+
         ball.position.x = paddel.position.x
         ball.position.y = paddel.position.y + ball.size.height
         ball.zPosition = 10
@@ -120,11 +138,13 @@ class GameScene1: SKScene, SKPhysicsContactDelegate{
     
     func gameOver() {
         let gameOverScene = GameOverScene(size: self.size)
+        run(gameOverSound)
         scene?.view?.presentScene(gameOverScene)
     }
     
     func gameWin() {
         let gameWinScene = GameWinScene(size: self.size)
+        run(gameWinSound)
         scene?.view?.presentScene(gameWinScene)
     }
     

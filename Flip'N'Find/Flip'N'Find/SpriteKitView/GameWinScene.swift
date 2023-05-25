@@ -15,6 +15,7 @@ class GameWinScene: SKScene {
     override func didMove(to view: SKView) {
         backgroundColor = .systemMint
         
+        //image for game win text
         gameWin.position = CGPoint(x: size.width / 2, y: size.height / 2)
         gameWin.setScale(1.1)
         gameWin.zPosition = 5
